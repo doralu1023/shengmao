@@ -1,11 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-    <title>My GitHub Pages Site</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盛貿開發工程有限公司 | Sheng Mao Development Engineering Co., Ltd.</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
-    <h1>Welcome to my website!</h1>
-    <p>This is hosted on GitHub Pages.</p>
+<body x-data="{ language: 'zh', mobileMenuOpen: false }" x-cloak>
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="mobile-menu-toggle" @click="mobileMenuOpen = !mobileMenuOpen">
+                <span x-show="!mobileMenuOpen">
+                    <span x-show="language === 'zh'">目錄 ☰</span>
+                    <span x-show="language === 'en'">Menu ☰</span>
+                </span>
+                <span x-show="mobileMenuOpen">✕</span>
+            </button>
+            <div class="nav-list" :class="{ 'mobile-menu-active': mobileMenuOpen }">
+                <a href="#history" class="nav-link" @click="mobileMenuOpen = false">
+                    <span x-show="language === 'zh'">公司沿革</span>
+                    <span x-show="language === 'en'">History</span>
+                </a>
+                <a href="#services" class="nav-link" @click="mobileMenuOpen = false">
+                    <span x-show="language === 'zh'">服務項目</span>
+                    <span x-show="language === 'en'">Services</span>
+                </a>
+                <a href="#philosophy" class="nav-link" @click="mobileMenuOpen = false">
+                    <span x-show="language === 'zh'">經營理念</span>
+                    <span x-show="language === 'en'">Philosophy</span>
+                </a>
+                <a href="#process" class="nav-link" @click="mobileMenuOpen = false">
+                    <span x-show="language === 'zh'">作業說明</span>
+                    <span x-show="language === 'en'">Process</span>
+                </a>
+                <a href="#portfolio" class="nav-link" @click="mobileMenuOpen = false">
+                    <span x-show="language === 'zh'">工程實績</span>
+                    <span x-show="language === 'en'">Portfolio</span>
+                </a>
+            </div>
+            <button class="lang-toggle" @click="language = language === 'zh' ? 'en' : 'zh'">
+                <span x-text="language === 'zh' ? 'English' : '中文'"></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>
+            <span x-show="language === 'zh'">盛貿開發工程有限公司</span>
+            <span x-show="language === 'en'">Sheng Mao Development Engineering Co., Ltd.</span>
+        </h1>
+        <p>
+            <span x-show="language === 'zh'">專業石材與岩板工程顧問管理</span>
+            <span x-show="language === 'en'">Professional Stone & Slab Engineering Consulting Management</span>
+        </p>
+    </header>
+
+    <section id="history" class="section">
+        <h2>
+            <span x-show="language === 'zh'">公司沿革</span>
+            <span x-show="language === 'en'">Company History</span>
+        </h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left">
+                <h3>1990/05/05</h3>
+                <div x-show="language === 'zh'">
+                    <p>吉州實業有限公司成立</p>
+                    <p>石材加工廠設立於：</p>
+                    <ul>
+                        <li>新北五股凌雲路</li>
+                        <li>台中潭子</li>
+                    </ul>
+                </div>
+                <div x-show="language === 'en'">
+                    <p>Establishment of Ji Zhou Industrial Co., Ltd.</p>
+                    <p>Stone Processing Plants:</p>
+                    <ul>
+                        <li>Lingyun Road, Wugu, New Taipei City</li>
+                        <li>Tanzi, Taichung</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <h3>1999</h3>
+                <div x-show="language === 'zh'">
+                    <p>南安吉州石業有限公司成立</p>
+                    <p>石材加工廠設立於：</p>
+                    <ul>
+                        <li>中國福建泉州水頭鎮</li>
+                    </ul>
+                </div>
+                <div x-show="language === 'en'">
+                    <p>Establishment of Nan'an Ji Zhou Stone Industry Co., Ltd.</p>
+                    <p>Stone Processing Plant:</p>
+                    <ul>
+                        <li>Shuitou Town, Quanzhou, Fujian, China</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <h3>2000/02/17</h3>
+                <div x-show="language === 'zh'">
+                    <p>盛貿開發工程有限公司</p>
+                    <p>更名並整合石材與施工業務合一</p>
+                </div>
+                <div x-show="language === 'en'">
+                    <p>Sheng Mao Development Engineering Co., Ltd.</p>
+                    <p>Renamed and integrated stone material and construction operations</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <h3>2012/12/17</h3>
+                <div x-show="language === 'zh'">
+                    <p>盛貿營造有限公司成立</p>
+                </div>
+                <div x-show="language === 'en'">
+                    <p>Establishment of Sheng Mao Construction Co., Ltd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>
+            <span x-show="language === 'zh'">服務項目</span>
+            <span x-show="language === 'en'">Our Services</span>
+        </h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up">
+                <h3>
+                    <span x-show="language === 'zh'">石材與岩板原物料供應</span>
+                    <span x-show="language === 'en'">Stone & Slab Material Supply</span>
+                </h3>
+                <p x-show="language === 'zh'">
+                    憑藉與石材廠、加工廠長年往來的融洽關係，以及在中國福建設立石材廠的經驗，我們能為業主提供最優質的建材選擇。
+                </p>
+                <p x-show="language === 'en'">
+                    Through our long-standing relationships with stone factories and processing plants, including our experience in establishing a stone factory in Fujian, China, we provide clients with the highest quality building materials.
+                </p>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <h3>
+                    <span x-show="language === 'zh'">安裝工程與設計規劃</span>
+                    <span x-show="language === 'en'">Installation & Design Planning</span>
+                </h3>
+                <p x-show="language === 'zh'">
+                    提供專業的石材、岩板安裝工程服務，並協助業主進行設計規劃，給予專業建議。
+                </p>
+                <p x-show="language === 'en'">
+                    We provide professional stone and slab installation services, assist clients with design planning, and offer expert consultation.
+                </p>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <h3>
+                    <span x-show="language === 'zh'">石材破裂修補</span>
+                    <span x-show="language === 'en'">Stone Repair Services</span>
+                </h3>
+                <p x-show="language === 'zh'">
+                    專業的石材維修團隊，為您解決石材破裂問題。
+                </p>
+                <p x-show="language === 'en'">
+                    Our professional stone repair team solves all stone damage issues efficiently.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="section">
+        <h2>
+            <span x-show="language === 'zh'">經營理念</span>
+            <span x-show="language === 'en'">Our Philosophy</span>
+        </h2>
+        <div data-aos="fade-up">
+            <div x-show="language === 'zh'">
+                <p>盛貿開發工程有限公司秉持創新思維和卓越品質，致力於：</p>
+                <ul>
+                    <li>提供專業、全面的石材工程解決方案</li>
+                    <li>與客戶建立長期合作夥伴關係</li>
+                    <li>深入了解客戶需求，實現共贏</li>
+                    <li>憑藉豐富經驗，提供最全面的服務</li>
+                </ul>
+            </div>
+            <div x-show="language === 'en'">
+                <p>At Sheng Mao Development Engineering, we uphold innovation and excellence, committed to:</p>
+                <ul>
+                    <li>Providing professional, comprehensive stone engineering solutions</li>
+                    <li>Building long-term partnerships with clients</li>
+                    <li>Understanding client needs deeply to achieve mutual success</li>
+                    <li>Delivering comprehensive services through rich experience</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section">
+        <h2>
+            <span x-show="language === 'zh'">作業說明</span>
+            <span x-show="language === 'en'">Work Process</span>
+        </h2>
+        <div class="process-steps">
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 1</h3>
+                <p x-show="language === 'zh'">訂單受理</p>
+                <p x-show="language === 'en'">Order Reception</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 2</h3>
+                <p x-show="language === 'zh'">電腦製圖</p>
+                <p x-show="language === 'en'">CAD Drawing</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 3</h3>
+                <p x-show="language === 'zh'">現場尺寸放樣繪圖</p>
+                <p x-show="language === 'en'">On-site Measurement</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 4</h3>
+                <p x-show="language === 'zh'">編列建材訂單</p>
+                <p x-show="language === 'en'">Material Order Planning</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 5</h3>
+                <p x-show="language === 'zh'">下單建材訂單</p>
+                <p x-show="language === 'en'">Material Ordering</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 6</h3>
+                <p x-show="language === 'zh'">工廠製作建材</p>
+                <p x-show="language === 'en'">Factory Production</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 7</h3>
+                <p x-show="language === 'zh'">運送建材至現場</p>
+                <p x-show="language === 'en'">Material Delivery</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 8</h3>
+                <p x-show="language === 'zh'">現場施工</p>
+                <p x-show="language === 'en'">On-site Installation</p>
+            </div>
+            <div class="step-card" data-aos="fade-up">
+                <h3>STEP 9</h3>
+                <p x-show="language === 'zh'">驗收與結案</p>
+                <p x-show="language === 'en'">Inspection & Completion</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <h2>
+            <span x-show="language === 'zh'">工程實績</span>
+            <span x-show="language === 'en'">Portfolio</span>
+        </h2>
+        <div class="gallery">
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/api/placeholder/400/300" alt="天母大樓 | Tianmu Building" />
+                <div class="gallery-caption">
+                    <h3>
+                        <span x-show="language === 'zh'">天母大樓</span>
+                        <span x-show="language === 'en'">Tianmu Building</span>
+                    </h3>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/api/placeholder/400/300" alt="飯店大樓 | Hotel Building" />
+                <div class="gallery-caption">
+                    <h3>
+                        <span x-show="language === 'zh'">飯店大樓</span>
+                        <span x-show="language === 'en'">Hotel Building</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div x-show="language === 'zh'">
+                <p>© 2024 盛貿開發工程有限公司. 版權所有.</p>
+            </div>
+            <div x-show="language === 'en'">
+                <p>© 2024 Sheng Mao Development Engineering Co., Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/scripts.js"></script>
 </body>
-</html>
